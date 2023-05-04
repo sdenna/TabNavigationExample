@@ -1,0 +1,2 @@
+npm install
+npm i @expo/ngrok@^4.1.0

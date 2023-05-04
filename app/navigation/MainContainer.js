@@ -32,11 +32,8 @@ function MainContainer() {
                         return <Ionicons name={iconName} size = {size} color = {color} />;
                     },
                 })}
-                tabBarOptions={{
-                    activeTintColor: 'black',
-                    inactiveTintColor: 'dimgray',
-                    labelStyle: {paddingBottom: 0, fontSize: 15, fontWeight: 'bold'},
-                }}>
+       
+                >
                 <Tab.Screen name = {homeName} component = {HomeScreen} />
                 <Tab.Screen name = {detailsName} component = {DetailsScreen} />
                 <Tab.Screen name = {settingsName} component = {SettingsScreen} />    
