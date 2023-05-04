@@ -1,0 +1,7 @@
+Look at this site:
+
+Searched accessing child screen props with tab navigation
+Post talks about using useEffect to 'share' a state variable on various screens
+
+https://stackoverflow.com/questions/71948897/access-child-screen-props-from-react-navigation-top-tabs
+

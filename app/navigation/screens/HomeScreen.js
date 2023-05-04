@@ -126,24 +126,7 @@ export default function HomeScreen() {
         ItemSeparatorComponent={ListItemSeparator}
       />
 
-              
-    {/*  
-    Goal of this page is to create a custom TextInput that can 
-    be used to get a username, password, and phone number.
-    In order to do this, we need to be able to pass in some
-    props as needed to customize the TextInput.
-
-    We will use state variables for each of these items
-
-    We will have a state array for all the "users"
-
-    As the user is added, then we will create an object with
-    the info they entered and then add this object to the array
-
-    Lastly, we will create a custom ListItem component to display our users
-    and then display the users in a FlatList below the input section.
-
-    */}
+            
     </View>
   </View>
   );
