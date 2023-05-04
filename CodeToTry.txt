@@ -31,3 +31,5 @@ https://github.com/react-navigation/react-navigation/issues/5667
 this params are passed to the route that you navigate to, in this case it would be the tab route, and not one of the screens in the route. if from one of those screens you want to get the params that are passed to the tab navigator, you can do this:
 
 this.props.navigation.dangerouslyGetParent().getParam('paramNameHere')
+
+ <Tab.Screen name = {settingsName} render ={() => <SettingsScreen friendsArr = {sampleFriends} /> } />   

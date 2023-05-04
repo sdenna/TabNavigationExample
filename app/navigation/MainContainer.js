@@ -5,6 +5,8 @@ import HomeScreen from "./screens/HomeScreen";
 import DetailsScreen from "./screens/DetailsScreen";
 import SettingsScreen from "./screens/SettingsScreen";
 
+import {friends} from '../variables/data';
+
 
 const homeName = 'Home';
 const detailsName = 'Details';
@@ -52,7 +54,14 @@ function MainContainer() {
                 >
                 <Tab.Screen name = {homeName} component = {HomeScreen} />
                 <Tab.Screen name = {detailsName} component = {DetailsScreen} />
-                <Tab.Screen name = {settingsName} render ={() => <SettingsScreen friendsArr = {sampleFriends} /> } />   
+                <Tab.Screen name = {settingsName} 
+                    children={() => (
+                        <SettingsScreen
+                            friendsArr={friends}
+                        />
+                     )}
+                 />      
+               
             </Tab.Navigator>
         </NavigationContainer>
     );

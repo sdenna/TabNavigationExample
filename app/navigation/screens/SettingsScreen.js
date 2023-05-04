@@ -1,10 +1,8 @@
 import * as React from 'react';
 import { View, Text } from 'react-native';
-
-
+import { randomStr } from './HomeScreen'
 export default function SettingsScreen({friendsArr}) {
-
-  const receivedFriends = friendsArr;
+  console.log(friendsArr)
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -13,7 +11,7 @@ export default function SettingsScreen({friendsArr}) {
         style={{ fontSize: 26, fontWeight: 'bold' }}>
         Settings Screen
       </Text>
-      {/* <Text>I have {friendsArr.length} friends</Text> */}
+      <Text>I have {friendsArr.length} friends</Text>
     </View>
   );
 }
