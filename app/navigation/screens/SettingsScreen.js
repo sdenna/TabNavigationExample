@@ -2,7 +2,10 @@ import * as React from 'react';
 import { View, Text } from 'react-native';
 
 
-export default function SettingsScreen() {
+export default function SettingsScreen({friendsArr}) {
+
+  const receivedFriends = friendsArr;
+
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text
@@ -10,6 +13,7 @@ export default function SettingsScreen() {
         style={{ fontSize: 26, fontWeight: 'bold' }}>
         Settings Screen
       </Text>
+      {/* <Text>I have {friendsArr.length} friends</Text> */}
     </View>
   );
 }

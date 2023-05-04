@@ -13,6 +13,22 @@ const settingsName = 'Settings';
 const Tab = createBottomTabNavigator();
 
 function MainContainer() {
+
+    const sampleFriends = [
+        {
+          id: 1,
+          name: "Praneet",
+          age: "17",
+          favActivity: "Gaming a lot",
+        },
+        {
+            id: 2,
+            name: "Denna",
+            age: "44",
+            favActivity: "Working out",
+          },
+    ]
+
     return (
         <NavigationContainer>
             <Tab.Navigator
@@ -36,7 +52,7 @@ function MainContainer() {
                 >
                 <Tab.Screen name = {homeName} component = {HomeScreen} />
                 <Tab.Screen name = {detailsName} component = {DetailsScreen} />
-                <Tab.Screen name = {settingsName} component = {SettingsScreen} />    
+                <Tab.Screen name = {settingsName} render ={() => <SettingsScreen friendsArr = {sampleFriends} /> } />   
             </Tab.Navigator>
         </NavigationContainer>
     );
