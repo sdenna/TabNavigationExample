@@ -5,7 +5,8 @@ import HomeScreen from "./screens/HomeScreen";
 import DetailsScreen from "./screens/DetailsScreen";
 import SettingsScreen from "./screens/SettingsScreen";
 
-import {friends} from '../variables/data';
+import {otherfriends} from '../variables/data';
+import React, {useState} from 'react';
 
 
 const homeName = 'Home';
@@ -14,7 +15,14 @@ const settingsName = 'Settings';
 
 const Tab = createBottomTabNavigator();
 
+
+// function addFriend(newFriends){
+//     setFriends(newFriends);
+// }
+
+
 function MainContainer() {
+    
 
     const sampleFriends = [
         {
@@ -57,7 +65,7 @@ function MainContainer() {
                 <Tab.Screen name = {settingsName} 
                     children={() => (
                         <SettingsScreen
-                            friendsArr={friends}
+                            friendsArr={otherfriends}
                         />
                      )}
                  />      

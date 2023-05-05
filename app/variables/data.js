@@ -1,6 +1,12 @@
 import React, {useState} from 'react';
 
-const initialFriends = [
+// create a funcitonal component sole purpose is to have the arrray, state function and then export the array and state
+// the other screesn can inport this component
+// like an abstraction that will be called from each screen taht needs to manipulate the data
+
+function MyData(newFriend) {
+
+ const otherfriends = [
     {
       id: 1,
       name: "Praneet",
@@ -26,13 +32,37 @@ const initialFriends = [
       favActivity: "Nerf Gun Battles",
     },
   ]
-
+  
+  const addFriend = () => {
+  
+    // for now, id will be length + 1.  However, if we begin deleting elements, this
+    // will cause an issue. At that time we will look for other ways to get a unique id #
+      const newFriend = [
+        {
+          id: id,
+          name: userName,
+          age: age,
+          favActivity: activity,
+  
+        }
+      ] 
+    const newArray = friends.concat(newFriend);  
+    //handleSetFriends(newFriend);
+    setFriends(newArray);
+    //console.log(friends);
+    setId(id + 1);
+    }
  
-  const [friends, setFriends] = useState(initialFriends);
+ return otherfriends; 
 
-  export function handleSetFriends(friend) {
-    setFriends(friend)
-}
+  export const handleSetFriends = (friends) => {
+    setFriends(friends);
+    console.log(friends);
+    }
 
+  }
 
+  //one sender function (sends data to this file)
+  // one getter function (that gets the information from this file)
+  // one deleter function (delete)
   

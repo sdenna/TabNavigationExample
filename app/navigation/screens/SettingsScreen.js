@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { View, Text } from 'react-native';
 import { randomStr } from './HomeScreen'
+
 export default function SettingsScreen({friendsArr}) {
   console.log(friendsArr)
 

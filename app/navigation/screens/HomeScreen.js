@@ -7,38 +7,41 @@ import ListItem from '../../components/ListItem';
 import colors from '../../config/colors';
 import MyTextInput from '../../components/MyTextInput';
 import ListItemDeleteAction from '../../components/ListItemDeleteAction';
-import { friends } from '../../variables/data';
+
+
+
+
+ 
 
 export default function HomeScreen() {
 
-  // const initialFriends = [
-  //   {
-  //     id: 1,
-  //     name: "Praneet",
-  //     age: "17",
-  //     favActivity: "Gaming a lot",
-  //   },
-  //   {
-  //     id: 2,
-  //      name: "Stephen",
-  //     age: "16",
-  //     favActivity: "Sleeping",
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "Albert",
-  //     age: "18",
-  //     favActivity: "Water skiing",
-  //   },
-  //   {
-  //     id: 4,
-  //     name: "Brayden",
-  //     age: "10",
-  //     favActivity: "Nerf Gun Battles",
-  //   },
-  // ]
-    
-  const [friends, setFriends] = useState(friends);
+  const initialFriends = [
+    {
+      id: 1,
+      name: "Praneet",
+      age: "17",
+      favActivity: "Gaming a lot",
+    },
+    {
+      id: 2,
+       name: "Stephen",
+      age: "16",
+      favActivity: "Sleeping",
+    },
+    {
+      id: 3,
+      name: "Albert",
+      age: "18",
+      favActivity: "Water skiing",
+    },
+    {
+      id: 4,
+      name: "Brayden",
+      age: "10",
+      favActivity: "Nerf Gun Battles",
+    },
+  ]
+  const [friends, setFriends] = useState(initialFriends);
   const [userName, setUserName] = useState('');
   const [age, setAge] = useState(''); 
   const [activity, setActivity] = useState(''); 
@@ -64,8 +67,9 @@ export default function HomeScreen() {
         }
       ] 
     const newArray = friends.concat(newFriend);  
+    //handleSetFriends(newFriend);
     setFriends(newArray);
-    console.log(friends);
+    //console.log(friends);
     setId(id + 1);
     }
 
