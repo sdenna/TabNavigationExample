@@ -4,9 +4,9 @@ import React, {useState} from 'react';
 // the other screesn can inport this component
 // like an abstraction that will be called from each screen taht needs to manipulate the data
 
-function MyData(newFriend) {
+export default function MyData(newFriend) {
 
- const otherfriends = [
+  const otherfriends = [
     {
       id: 1,
       name: "Praneet",
@@ -33,6 +33,11 @@ function MyData(newFriend) {
     },
   ]
   
+  const handleSetFriends = (friends) => {
+    setFriends(friends);
+    console.log(friends);
+    }
+
   const addFriend = () => {
   
     // for now, id will be length + 1.  However, if we begin deleting elements, this
@@ -55,10 +60,6 @@ function MyData(newFriend) {
  
  return otherfriends; 
 
-  export const handleSetFriends = (friends) => {
-    setFriends(friends);
-    console.log(friends);
-    }
 
   }
 

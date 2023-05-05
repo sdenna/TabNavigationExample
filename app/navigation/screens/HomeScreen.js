@@ -8,8 +8,7 @@ import colors from '../../config/colors';
 import MyTextInput from '../../components/MyTextInput';
 import ListItemDeleteAction from '../../components/ListItemDeleteAction';
 
-
-
+import Data from '../../variables/data';
 
  
 
