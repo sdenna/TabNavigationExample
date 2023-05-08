@@ -1,35 +1,6 @@
-Look at this site:
+Sources that worked:
 
-Searched accessing child screen props with tab navigation
-Post talks about using useEffect to 'share' a state variable on various screens
+https://dev.to/efearas/how-to-usecontext-and-set-value-of-context-in-child-components-in-3-steps-3j9h
 
-https://stackoverflow.com/questions/71948897/access-child-screen-props-from-react-navigation-top-tabs
+https://react.dev/learn/passing-data-deeply-with-context
 
-https://codedamn.com/news/reactjs/useeffect-dependency
-
-
-Idea to try (this is React, adjust for RN)
-
- 3
-You need to move that variable up in the component hierarchy and then pass it as a property to other components.
-
-const App = () => {
-    const date = new Date();
-    return (<DateContainer date={date} />);
-};
-
-const DateContainer = ({ date }) => {
-    return (
-        <div> { date.toString() } </div>
-    );
-}
-
-
-
-Possible options to try:
-https://github.com/react-navigation/react-navigation/issues/5667
-this params are passed to the route that you navigate to, in this case it would be the tab route, and not one of the screens in the route. if from one of those screens you want to get the params that are passed to the tab navigator, you can do this:
-
-this.props.navigation.dangerouslyGetParent().getParam('paramNameHere')
-
- <Tab.Screen name = {settingsName} render ={() => <SettingsScreen friendsArr = {sampleFriends} /> } />   
