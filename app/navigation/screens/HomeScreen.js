@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
+import { Context } from '../../config/context';
 import { View, Text, FlatList, Button, StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
 
@@ -8,48 +9,19 @@ import colors from '../../config/colors';
 import MyTextInput from '../../components/MyTextInput';
 import ListItemDeleteAction from '../../components/ListItemDeleteAction';
 
-import Data from '../../variables/data';
-
- 
 
 export default function HomeScreen() {
-
-  const initialFriends = [
-    {
-      id: 1,
-      name: "Praneet",
-      age: "17",
-      favActivity: "Gaming a lot",
-    },
-    {
-      id: 2,
-       name: "Stephen",
-      age: "16",
-      favActivity: "Sleeping",
-    },
-    {
-      id: 3,
-      name: "Albert",
-      age: "18",
-      favActivity: "Water skiing",
-    },
-    {
-      id: 4,
-      name: "Brayden",
-      age: "10",
-      favActivity: "Nerf Gun Battles",
-    },
-  ]
-  const [friends, setFriends] = useState(initialFriends);
+  const [context, setContext] = useContext(Context);
+//  const [friends, setFriends] = useState(initialFriends);
   const [userName, setUserName] = useState('');
   const [age, setAge] = useState(''); 
   const [activity, setActivity] = useState(''); 
-  const[id, setId] = useState(friends.length +1);
+  const[id, setId] = useState(context.length +1);
 
   const handleDelete = friend => {
     console.log("deleting " + friend.name);
-    const newFriends = friends.filter(f => f.id !== friend.id);
-    setFriends(newFriends);
+    const newFriends = context.filter(f => f.id !== friend.id);
+    setContext(newFriends);
   }
 
   const addFriend = () => {
@@ -65,9 +37,10 @@ export default function HomeScreen() {
   
         }
       ] 
-    const newArray = friends.concat(newFriend);  
+    const newArray = context.concat(newFriend);  
+    setContext(newArray);
     //handleSetFriends(newFriend);
-    setFriends(newArray);
+    //setFriends(newArray);
     //console.log(friends);
     setId(id + 1);
     }
@@ -112,7 +85,7 @@ export default function HomeScreen() {
 
       <FlatList 
         style={styles.flatlistStyles}
-        data={friends}
+        data={context}
         keyExtractor={item => item.id.toString()}
         renderItem={({item}) =>
           <ListItem
