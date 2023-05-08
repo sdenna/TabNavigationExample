@@ -1,13 +1,14 @@
+import React, {useContext, useState} from 'react';
+import { Context } from '../config/context';
 import {NavigationContainer } from "@react-navigation/native";
 import {createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {Ionicons} from '@expo/vector-icons';
 import HomeScreen from "./screens/HomeScreen";
 import DetailsScreen from "./screens/DetailsScreen";
 import SettingsScreen from "./screens/SettingsScreen";
+import { Settings } from 'react-native';
 
-import {otherfriends} from '../variables/data';
-import React, {useState} from 'react';
-
+//import {otherfriends} from '../variables/data';
 
 const homeName = 'Home';
 const detailsName = 'Details';
@@ -22,24 +23,9 @@ const Tab = createBottomTabNavigator();
 
 
 function MainContainer() {
-    
-
-    const sampleFriends = [
-        {
-          id: 1,
-          name: "Praneet",
-          age: "17",
-          favActivity: "Gaming a lot",
-        },
-        {
-            id: 2,
-            name: "Denna",
-            age: "44",
-            favActivity: "Working out",
-          },
-    ]
-
+    const [context, setContext] = useContext(Context);
     return (
+            
         <NavigationContainer>
             <Tab.Navigator
                 initialRouteName={homeName}
@@ -57,21 +43,18 @@ function MainContainer() {
                         }
                         return <Ionicons name={iconName} size = {size} color = {color} />;
                     },
+                    tabBarActiveTintColor: 'tomato',
+                    tabBarInactiveTintColor: 'gray',
                 })}
        
                 >
                 <Tab.Screen name = {homeName} component = {HomeScreen} />
                 <Tab.Screen name = {detailsName} component = {DetailsScreen} />
-                <Tab.Screen name = {settingsName} 
-                    children={() => (
-                        <SettingsScreen
-                            friendsArr={otherfriends}
-                        />
-                     )}
-                 />      
-               
+                <Tab.Screen name = {settingsName} component = {SettingsScreen} />
+                     
             </Tab.Navigator>
         </NavigationContainer>
+        
     );
 }
 export default MainContainer;
