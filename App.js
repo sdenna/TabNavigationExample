@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import MainContainer from './app/navigation/MainContainer';
 import { Context } from './app/config/context';
-
+import Constants from 'expo-constants';
 
 export default function App() {
 
@@ -21,10 +21,11 @@ export default function App() {
       favActivity: "Working out",
     },
 ]
+
   const [context, setContext] = useState(initialFriends);
   
   return (
-    <Context.Provider value={[context, setContext]}>
+    <Context.Provider value={[context, setContext]}>  
       <MainContainer />
     </Context.Provider>
   );

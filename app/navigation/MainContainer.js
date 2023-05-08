@@ -6,20 +6,14 @@ import {Ionicons} from '@expo/vector-icons';
 import HomeScreen from "./screens/HomeScreen";
 import DetailsScreen from "./screens/DetailsScreen";
 import SettingsScreen from "./screens/SettingsScreen";
-import { Settings } from 'react-native';
-
-//import {otherfriends} from '../variables/data';
+import Constants from 'expo-constants';
+import colors from '../config/colors';
 
 const homeName = 'Home';
 const detailsName = 'Details';
 const settingsName = 'Settings';
 
 const Tab = createBottomTabNavigator();
-
-
-// function addFriend(newFriends){
-//     setFriends(newFriends);
-// }
 
 
 function MainContainer() {
@@ -43,7 +37,7 @@ function MainContainer() {
                         }
                         return <Ionicons name={iconName} size = {size} color = {color} />;
                     },
-                    tabBarActiveTintColor: 'tomato',
+                    tabBarActiveTintColor: colors.primary,
                     tabBarInactiveTintColor: 'gray',
                 })}
        

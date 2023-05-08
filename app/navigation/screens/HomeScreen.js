@@ -2,7 +2,6 @@ import React, {useState, useContext} from 'react';
 import { Context } from '../../config/context';
 import { View, Text, FlatList, Button, StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
-
 import ListItemSeparator from '../../components/ListItemSeparator';
 import ListItem from '../../components/ListItem';
 import colors from '../../config/colors';
@@ -12,7 +11,7 @@ import ListItemDeleteAction from '../../components/ListItemDeleteAction';
 
 export default function HomeScreen() {
   const [context, setContext] = useContext(Context);
-//  const [friends, setFriends] = useState(initialFriends);
+
   const [userName, setUserName] = useState('');
   const [age, setAge] = useState(''); 
   const [activity, setActivity] = useState(''); 
@@ -25,7 +24,6 @@ export default function HomeScreen() {
   }
 
   const addFriend = () => {
-  
     // for now, id will be length + 1.  However, if we begin deleting elements, this
     // will cause an issue. At that time we will look for other ways to get a unique id #
       const newFriend = [
@@ -34,14 +32,10 @@ export default function HomeScreen() {
           name: userName,
           age: age,
           favActivity: activity,
-  
         }
       ] 
     const newArray = context.concat(newFriend);  
     setContext(newArray);
-    //handleSetFriends(newFriend);
-    //setFriends(newArray);
-    //console.log(friends);
     setId(id + 1);
     }
 
