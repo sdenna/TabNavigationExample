@@ -15,11 +15,9 @@ const settingsName = 'Settings';
 
 const Tab = createBottomTabNavigator();
 
-
 function MainContainer() {
     const [context, setContext] = useContext(Context);
     return (
-            
         <NavigationContainer>
             <Tab.Navigator
                 initialRouteName={homeName}
@@ -39,8 +37,7 @@ function MainContainer() {
                     },
                     tabBarActiveTintColor: colors.primary,
                     tabBarInactiveTintColor: 'gray',
-                })}
-       
+                })}       
                 >
                 <Tab.Screen name = {homeName} component = {HomeScreen} />
                 <Tab.Screen name = {detailsName} component = {DetailsScreen} />
@@ -48,7 +45,6 @@ function MainContainer() {
                      
             </Tab.Navigator>
         </NavigationContainer>
-        
     );
 }
 export default MainContainer;

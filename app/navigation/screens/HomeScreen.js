@@ -2,12 +2,8 @@ import React, {useState, useContext} from 'react';
 import { Context } from '../../config/context';
 import { View, Text, FlatList, Button, StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
-import ListItemSeparator from '../../components/ListItemSeparator';
-import ListItem from '../../components/ListItem';
 import colors from '../../config/colors';
 import MyTextInput from '../../components/MyTextInput';
-import ListItemDeleteAction from '../../components/ListItemDeleteAction';
-
 
 export default function HomeScreen() {
   const [context, setContext] = useContext(Context);
@@ -16,12 +12,6 @@ export default function HomeScreen() {
   const [age, setAge] = useState(''); 
   const [activity, setActivity] = useState(''); 
   const[id, setId] = useState(context.length +1);
-
-  const handleDelete = friend => {
-    console.log("deleting " + friend.name);
-    const newFriends = context.filter(f => f.id !== friend.id);
-    setContext(newFriends);
-  }
 
   const addFriend = () => {
     // for now, id will be length + 1.  However, if we begin deleting elements, this
@@ -37,8 +27,7 @@ export default function HomeScreen() {
     const newArray = context.concat(newFriend);  
     setContext(newArray);
     setId(id + 1);
-    }
-
+  }
 
   return (
     <View style={styles.container}>
@@ -61,7 +50,6 @@ export default function HomeScreen() {
           placeholder="Favorite Activity"
           style={styles.textInput}
           onChangeText = {text => setActivity(text)}
-
       />
 
       <Text>My username: {userName}</Text>
@@ -76,26 +64,6 @@ export default function HomeScreen() {
         />
       </View>
     {/* // need as scrollview here */}
-
-      <FlatList 
-        style={styles.flatlistStyles}
-        data={context}
-        keyExtractor={item => item.id.toString()}
-        renderItem={({item}) =>
-          <ListItem
-            name={item.name}
-            age={item.age}
-            favActivity={item.favActivity}
-            onPress={() => console.log('clicked on ' +item.userName)}
-            renderRightActions = {() => 
-              <ListItemDeleteAction 
-                onPress={() => handleDelete(item)} /> }
-            />
-        }
-        ItemSeparatorComponent={ListItemSeparator}
-      />
-
-            
     </View>
   </View>
   );
